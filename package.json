@@ -1,0 +1,22 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:frontend": "vite --config website/vite.config.ts",
+    "dev:backend": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angus-blomley/chat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/angus-blomley/chat/issues"
+  },
+  "homepage": "https://github.com/angus-blomley/chat#readme",
+  "description": ""
+}
