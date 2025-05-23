@@ -26,11 +26,12 @@ This simple chatbot connects to the **OpenAI API** to generate intelligent respo
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/chat.git
+git clone https://github.com/angusblomley/chat.git
 cd chat
 
 # Install dependencies
-npm install
+cd website && npm install
+cd server && npm install
 
 # Run the app (client + server)
 cd website && npm run dev:frontend
