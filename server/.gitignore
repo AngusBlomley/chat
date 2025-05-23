@@ -1,0 +1,12 @@
+#cricital info
+critical-info.txt
+
+#node_modules
+server/node_modules
+server/.env
+# Environment
+.env
+*/.env
+
+# Node
+/node_modules
