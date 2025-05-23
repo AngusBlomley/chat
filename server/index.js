@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const conversationRoutes = require('./routes/conversation');
-
+const chatGPT = require('./routes/chatGPT');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -18,6 +18,7 @@ app.use(cors({
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/conversation', conversationRoutes);
+app.use('/api/chatGPT', chatGPT);
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {

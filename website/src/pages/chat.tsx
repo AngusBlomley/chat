@@ -2,35 +2,43 @@ import SideBar from "../components/chat/SideBar";
 import ChatInput from "../components/chat/ChatInput";
 import OptionsMenu from "../components/chat/OptionsMenu";
 import { useState } from "react";
-// import { Conversation, User } from "../../../types"
-
-// parent component, get the data from mongo on mount.
 
 const Chat = () => {
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
+  const [chat, setChat] = useState("");
+  const [loading, setLoading] = useState(false);
+
   return (
-    <div className="bg-zinc-800 h-screen w-screen relative">
+    <div className="min-h-screen w-full relative flex flex-col">
       <OptionsMenu />
-      <div className="h-full w-[300px] bg-zinc-900 fixed top-0 left-0 text-white p-4">
+
+      <div className="hidden md:block md:fixed md:top-0 md:left-0 md:w-64 h-full bg-zinc-100  p-4">
         <SideBar />
       </div>
-      <div className="text-white h-screen w-screen pl-80 flex justify-center items-center">
+
+      <div className="flex flex-1 flex-col items-center justify-center min-w-xl max-w-xl px-4 pt-20">
         {showWelcomeMessage ? (
-          <div>
-            <h1 className="text-2xl">What can I help you with?</h1>
-          </div>
+          <h1 className="text-2xl text-center">What can I help you with?</h1>
         ) : (
-          <div>
-            <div></div>
+          <div className="w-full space-y-4">
+            {loading && <span className="text-sm">loading...</span>}
+            <p className="text-left duration-200">{chat}</p>
           </div>
         )}
       </div>
+
       <div
-        className={`fixed rounded-4xl bg-neutral-700 min-w-3xl px-5 py-4 ${
-          showWelcomeMessage ? "bottom-96" : "bottom-4"
-        } ml-88 translate-x-1/2`}
+        className={`fixed w-full md:w-[calc(100%-16rem)] max-w-3xl left-1/2 transform -translate-x-1/2 px-4 ${
+          showWelcomeMessage ? "bottom-36" : "bottom-4"
+        }`}
       >
-        <ChatInput />
+        <div className="bg-neutral-100 rounded-3xl pl-5 pr-2 py-2">
+          <ChatInput
+            setChat={setChat}
+            setShowWelcomeMessage={setShowWelcomeMessage}
+            setLoading={setLoading}
+          />
+        </div>
       </div>
     </div>
   );

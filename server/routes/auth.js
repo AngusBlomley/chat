@@ -2,10 +2,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const express = require('express');
 const User = require('../models/User');
-require('dotenv').config();
-
-
 const router = express.Router();
+require('dotenv').config();
 
 router.post('/register', async (req, res) => {
     const { username, email, password } = req.body;
