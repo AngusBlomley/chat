@@ -3,6 +3,11 @@ import { Card } from "../components/ui/card";
 import LoginForm from "../components/auth/loginForm";
 import RegisterForm from "../components/auth/registerForm";
 
+// TODO: check with the user session to see if the user is
+// logged in or not. if authenticated then continue to app
+
+// maybe add special invite code from email
+
 const Auth = () => {
   const [showLogin, setShowLogin] = useState(false);
 

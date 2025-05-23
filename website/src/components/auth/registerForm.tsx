@@ -10,6 +10,8 @@ interface RegisterFormData {
   confirmPassword: string;
 }
 
+// Refactor: user better naming for form validation instead of 'errors'
+
 const RegisterForm = () => {
   const [serverError, setServerError] = useState("");
   const [errors, setErrors] = useState(false);
@@ -87,7 +89,7 @@ const RegisterForm = () => {
         <Input
           title="password"
           type="password"
-          placeholder="Enter Password..."
+          placeholder="Enter password..."
           autoComplete="suggested-password"
           onBlur={() => setErrors(true)}
           onChange={(e) =>
@@ -106,7 +108,7 @@ const RegisterForm = () => {
         <Input
           title="password"
           type="password"
-          placeholder="Verify Password..."
+          placeholder="Verify password..."
           autoComplete="suggested-password"
           onBlur={() => setErrors(true)}
           onChange={(e) =>
