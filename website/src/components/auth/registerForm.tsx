@@ -76,7 +76,7 @@ const RegisterForm = () => {
   return (
     <>
       <CardHeader className="font-semibold">Create an account.</CardHeader>
-      <form className="flex-col flex space-y-2" onSubmit={handleSubmit}>
+      <form className="flex-col flex space-y-2 pb-10" onSubmit={handleSubmit}>
         <Input
           title="email"
           type="email"
