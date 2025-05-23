@@ -2,6 +2,12 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { CardHeader } from "../ui/card";
 
+/*    Todo: - connect to backend
+            - handle form validation
+            - error handling
+            - handleSubmit if successful redirect user to chat page
+*/
+
 const LoginForm = () => {
   return (
     <>
@@ -10,13 +16,13 @@ const LoginForm = () => {
         <Input
           title="email"
           type="email"
-          placeholder="Email..."
+          placeholder="Enter email..."
           autoComplete="email"
         />
         <Input
           title="password"
           type="password"
-          placeholder="Password..."
+          placeholder="Enter password..."
           autoComplete="suggested-password"
         />
         <Button>Login</Button>
