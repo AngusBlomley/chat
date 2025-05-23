@@ -11,14 +11,6 @@ import RegisterForm from "../components/auth/registerForm";
 const Auth = () => {
   const [showLogin, setShowLogin] = useState(false);
 
-  const toggleForm = () => {
-    if (!showLogin) {
-      setShowLogin(true);
-    } else {
-      setShowLogin(false);
-    }
-  };
-
   return (
     <>
       <Card className="p-10 min-w-sm min-h-[50vh] relative">
@@ -26,7 +18,7 @@ const Auth = () => {
         {showLogin ? <RegisterForm /> : <LoginForm />}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
           <button
-            onClick={toggleForm}
+            onClick={() => setShowLogin(!showLogin)}
             className="hover:opacity-75 text-blue-500 font-semibold"
           >
             {!showLogin ? "Create an account" : "Login"}

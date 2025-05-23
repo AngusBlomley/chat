@@ -7,7 +7,7 @@ router.post('/', async (req, res) => {
 
   try {
     const newConversation = new Conversation({
-      participants: [userId, 'ai'],  // hardcode AI as a participant
+      participants: [userId, 'ai'], 
       messages: []
     });
 
@@ -19,7 +19,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// GET /api/conversation/:userId
 router.get('/:userId', async (req, res) => {
   try {
     const conversations = await Conversation.find({

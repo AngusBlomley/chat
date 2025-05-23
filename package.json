@@ -18,5 +18,8 @@
     "url": "https://github.com/angus-blomley/chat/issues"
   },
   "homepage": "https://github.com/angus-blomley/chat#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "react-router-dom": "^7.6.0"
+  }
 }
