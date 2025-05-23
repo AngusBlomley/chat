@@ -34,6 +34,6 @@ cd website && npm install
 cd server && npm install
 
 # Run the app (client + server)
-cd website && npm run dev:frontend
-cd server && npm run dev:backend
+cd website && npm run dev
+cd server && npm run dev
 ```
