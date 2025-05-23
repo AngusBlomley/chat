@@ -6,12 +6,7 @@ import { useState, type FormEvent } from "react";
 import { TOKEN } from "../../storageKeys";
 import { useNavigate } from "react-router-dom";
 
-/*    Todo: - connect to backend
-            - handle form validation
-            - error handling
-            - handleSubmit if successful redirect user to chat page
-            - set session token (jwt) in local storage
-*/
+//  Todo: - handle form validation
 
 interface LoginFormData {
   email: string;
@@ -24,7 +19,6 @@ interface LoginResponse {
     _id?: string;
     username: string;
     email: string;
-    password: string;
     createdAt?: string;
   };
 }
