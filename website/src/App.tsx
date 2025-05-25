@@ -1,15 +1,20 @@
-import "./App.css";
-import Auth from "./pages/auth";
-import Chat from "./pages/chat";
-import { Routes, Route, Navigate } from "react-router-dom";
+// import './App.css';
+import GlobalStyles from './../GlobalStyles';
+import Auth from './pages/auth';
+
+import Chat from './pages/chat';
+import { Routes, Route, Navigate } from 'react-router-dom';
 // import Chat from "./pages/chat";
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Auth />} />
-      <Route path="/chat" element={<Chat />} />
-      <Route path="*" element={<Navigate to="/" />} />
-    </Routes>
+    <>
+      <GlobalStyles />
+      <Routes>
+        <Route path='/' element={<Auth />} />
+        <Route path='/chat' element={<Chat />} />
+        <Route path='*' element={<Navigate to='/' />} />
+      </Routes>
+    </>
   );
 }
 

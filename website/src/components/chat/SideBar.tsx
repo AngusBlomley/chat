@@ -33,19 +33,99 @@
 // - Implement rename using a text input and save button
 
 // import { Conversation, User } from "../../../types"
-import { FiEdit } from "react-icons/fi";
+
+import styled from 'styled-components';
+import { useState } from 'react';
+import { FiEdit } from 'react-icons/fi';
+import { motion } from 'motion/react';
+
+const promptList = [];
+
 const SideBar = () => {
+  const [list, setList] = useState(false);
+  const [count, setCount] = useState(1);
+
+  const addItemHandler = () => {
+    setCount(previousCount => previousCount + 1);
+
+    promptList.push(`Prompt ${count}`);
+    setList(true);
+  };
+
   return (
-    <>
-      <div className="flex items-center justify-between align-middle">
-        <h2 className="text-xl p-2">Conversations</h2>
-        <button title="edit">
-          <FiEdit size={36} className="hover:bg-neutral-600 rounded-md p-2" />
-        </button>
-      </div>
-      <ul></ul>
-    </>
+    <Wrapper>
+      <Details>
+        <Heading>Conversations</Heading>
+        <Button onClick={addItemHandler} title='edit'>
+          <FiEdit size={36} className='hover:bg-neutral-600 rounded-md p-2' />
+        </Button>
+      </Details>
+      <List>
+        {list &&
+          promptList.map((item, index) => {
+            return (
+              <ListEl
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                key={item}
+              >
+                {item}
+              </ListEl>
+            );
+          })}
+      </List>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  height: 100vh;
+  background-color: hsl(200deg 10% 10%);
+  color: white;
+  padding: 30px;
+  width: 400px;
+  /* border-right: 5px solid hsl(200deg 10% 80%); */
+`;
+
+const Details = styled.section`
+  display: flex;
+  margin-top: 30px;
+  gap: 30px;
+  margin-bottom: 30px;
+  align-items: center;
+`;
+
+const Heading = styled.h2`
+  font-size: 30px;
+  font-weight: 400;
+`;
+
+const Button = styled.button`
+  cursor: pointer;
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  background-color: transparent;
+`;
+
+const List = styled.ul`
+  list-style: none;
+  display: flex;
+  font-size: 16px;
+  flex-direction: column;
+  font-size: 16px;
+  margin-left: -30px;
+  margin-right: -30px;
+  padding-left: 0;
+`;
+
+const ListEl = styled(motion.li)`
+  /* background-color: hsl(200deg 10% 95%); */
+  color: hsl(200deg 10% 90%);
+  padding: 10px;
+  padding-left: 30px;
+  border-bottom: 1px solid hsl(200deg 10% 60%);
+`;
 
 export default SideBar;

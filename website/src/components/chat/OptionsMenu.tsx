@@ -1,31 +1,75 @@
-import { useState } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { useState } from 'react';
+import { RxHamburgerMenu } from 'react-icons/rx';
+import styled from 'styled-components';
+import { motion } from 'motion/react';
 
 const OptionsMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <button
-      title="Options Menu"
-      onClick={() => setIsMenuOpen(!isMenuOpen)}
-      className="fixed top-5 right-8"
-    >
-      <RxHamburgerMenu color="white" size={28} />
-
+    <Button title='Options Menu' onClick={() => setIsMenuOpen(!isMenuOpen)}>
+      <Icon size={36} />
       {isMenuOpen && (
-        <div className="bg-neutral-700 fixed right-6 rounded-2xl p-2 min-w-xs">
-          <ul className="text-white text-left text-sm">
-            <li className="hover:bg-neutral-600 rounded-lg px-3 py-2">
-              Signout
-            </li>
-            <li className="hover:bg-neutral-600 rounded-lg px-3 py-2">
-              Options
-            </li>
-          </ul>
-        </div>
+        <ButtonWrapper
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0 }}
+        >
+          <List>
+            <ListEl>Signout</ListEl>
+            <ListEl>Options</ListEl>
+          </List>
+        </ButtonWrapper>
       )}
-    </button>
+    </Button>
   );
 };
+
+const Button = styled.button`
+  position: absolute;
+  margin: 0 auto;
+  top: 60px;
+  right: 30px;
+  cursor: pointer;
+  background-color: transparent;
+  color: hsl(200deg 10% 30%);
+  outline: none;
+  border: none;
+`;
+
+const ButtonWrapper = styled(motion.div)`
+  border-radius: 10px;
+  text-align: center;
+  position: fixed;
+  right: 30px;
+  top: 20px;
+  min-width: 400px;
+  border: none;
+  outline: none;
+  background-color: hsl(200deg 10% 10%);
+  color: white;
+  padding: 20px;
+`;
+
+const List = styled.ul`
+  list-style: none;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+`;
+
+const Icon = styled(RxHamburgerMenu)`
+  color: hsl(200deg 10% 30%);
+`;
+
+const ListEl = styled.li`
+  border-radius: 10px;
+  font-size: 15px;
+  padding: 10px;
+
+  &:hover {
+    background-color: hsl(200deg 10% 50%);
+  }
+`;
 
 export default OptionsMenu;
