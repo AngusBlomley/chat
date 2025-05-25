@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import GlobalStyles from './../GlobalStyles';
 import Auth from './pages/auth';
 

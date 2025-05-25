@@ -1,7 +1,9 @@
-import { useState } from "react";
-import { Card } from "../components/ui/card";
-import LoginForm from "../components/auth/loginForm";
-import RegisterForm from "../components/auth/registerForm";
+import { useState } from 'react';
+import { Card } from '../components/ui/card';
+import LoginForm from '../components/auth/loginForm';
+import RegisterForm from '../components/auth/registerForm';
+import { motion } from 'motion/react';
+import styled from 'styled-components';
 
 // TODO: check with the user session to see if the user is
 // logged in or not. if authenticated then continue to app
@@ -13,21 +15,38 @@ const Auth = () => {
 
   return (
     <>
-      <Card className="p-10 min-w-sm min-h-[50vh] relative">
-        <img src="logo.png" alt="logo" className="h-24 w-24 self-center" />
+      <Card>
+        <Logo src='logo.png' alt='logo' className='h-24 w-24 self-center' />
         {showLogin ? <RegisterForm /> : <LoginForm />}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-          <button
-            onClick={() => setShowLogin(!showLogin)}
-            className="hover:opacity-75 text-blue-500 font-semibold"
-          >
-            {!showLogin ? "Create an account" : "Login"}
-          </button>
-        </div>
+
+        <Button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          onClick={() => setShowLogin(!showLogin)}
+          className='hover:opacity-75 text-blue-500 font-semibold'
+        >
+          {!showLogin ? 'Create an account' : 'Login'}
+        </Button>
       </Card>
     </>
   );
 };
+
+const Button = styled(motion.button)`
+  color: hsl(200deg 60% 30%);
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  display: inline-block;
+  width: 300px;
+  transform: translateX(-50%);
+`;
+
+const Logo = styled.img`
+  width: 96px;
+  height: 96px;
+`;
 
 export default Auth;
 
